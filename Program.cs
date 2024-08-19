@@ -17,7 +17,9 @@
             //   () => Process(3)
             // );
 
-            //Console.WriteLine("All actions completed.");
+
+
+            // Console.WriteLine("All actions completed.");
             #endregion
 
             #region Parallel.For
@@ -42,18 +44,18 @@
             #endregion
 
             #region LoopState
-            //Parallel.For(0, 1000, (i, loopState) =>
-            //{
-            //    Process(i);
+            Parallel.For(0, 1000, (i, loopState) =>
+            {
+                Process(i);
 
-            //    if (i == 2)
-            //    {
-            //        Console.WriteLine("Breaking loop...");
-            //        loopState.Break(); // Breaks the loop after completing the current iteration
-            //    }
-            //});
+                if (i == 2)
+                {
+                    Console.WriteLine("Breaking loop...");
+                    loopState.Break(); // Breaks the loop after completing the current iteration
+                }
+            });
 
-            //Console.WriteLine("Loop completed.");
+            Console.WriteLine("Loop completed.");
             #endregion
         }
     }

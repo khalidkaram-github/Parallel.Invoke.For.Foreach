@@ -2,15 +2,19 @@
 {
     internal class Program
     {
+        static void Process(int i)
+        {
+            Console.WriteLine($"Processing task ({i}) on thread : {Task.CurrentId}");
+        }
         static void Main(string[] args)
         {
 
             #region Parallel.Invoke
 
             //Parallel.Invoke(
-            //   () => Console.WriteLine($"Action 1 on thread {Task.CurrentId}"),
-            //   () => Console.WriteLine($"Action 2 on thread {Task.CurrentId}"),
-            //   () => Console.WriteLine($"Action 3 on thread {Task.CurrentId}")
+            //   () => Process(1),
+            //   () => Process(2),
+            //   () => Process(3)
             // );
 
             //Console.WriteLine("All actions completed.");
@@ -20,7 +24,7 @@
 
             //Parallel.For(0, 10, i =>
             //{
-            //    Console.WriteLine($"Processing {i} on thread {Task.CurrentId}");
+            //    Process(i);
             //});
             //Console.WriteLine("All iterations completed.");
 
@@ -31,18 +35,18 @@
             //var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             //Parallel.ForEach(numbers, number =>
             //{
-            //    Console.WriteLine($"Processing {number} on thread {Task.CurrentId}");
+            //    Process(number);
             //});
             //Console.WriteLine("All items processed.");
 
             #endregion
 
             #region LoopState
-            //Parallel.For(0, 100, (i, loopState) =>
+            //Parallel.For(0, 1000, (i, loopState) =>
             //{
-            //    Console.WriteLine($"Processing {i} on thread {Task.CurrentId}");
+            //    Process(i);
 
-            //    if (i == 1)
+            //    if (i == 2)
             //    {
             //        Console.WriteLine("Breaking loop...");
             //        loopState.Break(); // Breaks the loop after completing the current iteration
